@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40 (33762) - http://www.bohemiancoding.com/sketch -->
+    <title>search-simple</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home" transform="translate(-1282.000000, -352.000000)" stroke="#3F4652" stroke-width="2">
+            <g id="Search-banner" transform="translate(563.000000, 239.000000)">
+                <g id="Search" transform="translate(48.000000, 83.000000)">
+                    <path d="M681.236086,42.5847413 L681.236086,50.2318001 L681.236086,42.5847413 L681.236086,42.5847413 Z M681.236086,41.996506 C684.484819,41.996506 687.118439,39.3628869 687.118439,36.1141531 C687.118439,32.8654193 684.484819,30.2318001 681.236086,30.2318001 C677.987352,30.2318001 675.353733,32.8654193 675.353733,36.1141531 C675.353733,39.3628869 677.987352,41.996506 681.236086,41.996506 L681.236086,41.996506 Z" id="search-simple" transform="translate(681.236086, 40.231800) rotate(-45.000000) translate(-681.236086, -40.231800) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

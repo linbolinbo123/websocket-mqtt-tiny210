@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <script type="text/javascript" src="paho-mqtt.js"></script>
+    <script>
+        // Create a client instance
+        client = new Paho.MQTT.Client("your_host", Number(9001), "clientId2");
+
+        // set callback handlers
+        client.onConnectionLost = onConnectionLost;
+        client.onMessageArrived = onMessageArrived;
+
+        // connect the client
+        client.connect({
+            onSuccess: onConnect
+        });
+
+
+        // called when the client connects
+        function onConnect() {
+            // Once a connection has been made, make a subscription and send a message.
+            console.log("onConnect");
+
+            setInterval(function() {
+                var data = {
+                    photosensitive: Math.floor(Math.random() * 100),
+                };
+                message = new Paho.MQTT.Message(JSON.stringify(data));
+                message.destinationName = "sensor/photosensitive";
+                client.send(message);
+            }, 2000);
+        }
+
+        // called when the client loses its connection
+        function onConnectionLost(responseObject) {
+            if (responseObject.errorCode !== 0) {
+                console.log("onConnectionLost:" + responseObject.errorMessage);
+            }
+        }
+
+        // called when a message arrives
+        function onMessageArrived(message) {
+            console.log("onMessageArrived:" + message.payloadString);
+        }
+    </script>
+</body>
+
+</html>

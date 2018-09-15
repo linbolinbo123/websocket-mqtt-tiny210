@@ -1,0 +1,7 @@
+{
+  "humiture":{"temperature":20,"humidity":30},
+  "temperature":{"value":30},
+  "humidity":{"value":20},
+  "photosensitive":{"value":10},
+  "airquality":{"value":6}
+}

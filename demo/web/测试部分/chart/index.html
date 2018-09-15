@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!-- Load c3.css -->
+    <link type="text/css" href="c3.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="real-chart"></div>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<!-- Load d3.js and c3.js -->
+<script type="text/javascript" src="d3.v4.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="c3.min.js"></script>
+
+<script>
+    // 初始化图表
+    var chart = c3.generate({
+        bindto: '#real-chart',
+        data: {
+            json: [],
+            type: 'area-spline', // line,spline,step,area,area-spline,area-step,bar,scatter,pie,donut,gauge
+            labels: true
+        },
+        axis: {
+            x: {
+                type: 'timeseries',
+                tick: { // 设置刻度轴
+                    count: 12,
+                    culling: {
+                        max: 12
+                    },
+                    format: '%Y-%m-%d %H:%M:%S'
+                }
+            }
+        }
+    });
+
+    // 生成图表数据
+    var metrics = ['温度', '湿度', '光照强度', '空气质量'];
+    var addData = (function() {
+        var datas = [];
+        return function(data) {
+            datas.push(data);
+            if (datas.length < 12) {
+                chart.load({
+                    json: datas,
+                    keys: {
+                        x: 'date',
+                        value: metrics
+                    }
+                });
+            } else {
+                chart.flow({
+                    json: [data],
+                    keys: {
+                        x: 'date',
+                        value: metrics
+                    },
+                    duration: 1000
+                });
+            }
+        }
+    })();
+
+    setInterval(function() {
+        $.ajax({
+            url: "getback.php",
+            dataType:"json",
+            success: function(msg) {
+                /*var data = {
+                          date: new Date(),
+                          温度: Math.floor(Math.random() * 100),
+                          湿度: Math.floor(Math.random() * 100),
+                          光照强度: Math.floor(Math.random() * 100),
+                          空气质量: Math.floor(Math.random() * 100)
+                      };*/
+                console.log(msg.humidity.value);
+                var data = {
+                    date: new Date(),
+                    温度: Math.floor(msg.temperature.value),
+                    湿度: Math.floor(msg.humidity.value),
+                    光照强度: Math.floor(msg.photosensitive.value),
+                    空气质量: Math.floor(msg.airquality.value)
+                };
+                addData(data);
+            }
+        });
+    }, 5000);
+</script>
+</body>
+</html>
+
+
+<!--<html>
+  <head>
+    <title>数据采集系统</title>
+	<script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="./js/eon.js"></script>
+    <link type="text/css" rel="stylesheet" href="./js/eon.css"/>
+  </head>
+  <body>
+    <h1 class="title">基于物联网的多传感器数据采集系统</h1>
+    <div id="chart"></div>
+    <script>
+
+      var pubnub = new PubNub({
+        publishKey: 'pub-c-923938f1-a4c1-4253-b15a-9c24087904c9',
+        subscribeKey: 'sub-c-bd9ab0d6-6e02-11e5-8d3b-0619f8945a4f'
+      });
+
+      var channel = "c3-spline" + Math.random();
+
+      eon.chart({
+        channels: [channel],
+        flow: true,
+        pubnub: pubnub,
+        debug: false,
+        rate: 1000,
+        generate: {
+          bindto: '#chart',
+          data: {
+            type: 'spline',
+            labels: true
+          }
+        }
+      });
+    </script>
+
+    <script>
+     var temperature;
+     var humidity;
+     var illumination_intensity;
+     var smoke_density;
+     var flag = false;
+     setInterval(function(){
+		 $.ajax({
+			url: "sensor_info.php",
+			dataType: "json",
+			success: function(msg){
+                 temperature = msg.temperature;
+                 humidity = msg.humidity;
+                 illumination_intensity = msg.illumination_intensity;
+                 smoke_density = msg.smoke_density;
+                 flag = true;
+			},
+		});
+
+        if (flag) {
+            pubnub.publish({
+              channel: channel,
+              message: {
+                eon: {
+                  '温度': Math.floor(temperature),
+                  '湿度': Math.floor(humidity),
+                  '光照强度': Math.floor(illumination_intensity),
+                  '烟雾浓度': Math.floor(smoke_density),
+                }
+              }
+            });
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
+-->

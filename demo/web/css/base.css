@@ -1,0 +1,594 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+.clearfix:before,.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after{clear:both;}
+
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+ul, ol { list-style:none; }
+a {color:#666; text-decoration:none; }
+html{
+    font-size: 1em;
+    line-height: 1.5em;
+    text-rendering: optimizeLegibility;
+    font-weight: 400;
+}
+html{
+    display: block;
+}
+body{
+    background: linear-gradient(135deg,#00c4cc 25%,#016BC0 75%);
+    background-attachment: fixed;
+}
+body{
+    margin: 0;
+}
+body,input,button,select,textarea{
+    font-family: "Open Sans", sans-serif;
+    font-size: 100%;
+    color: #3f4652;
+    outline-style:none;
+}
+*{
+    box-sizing: border-box;
+}
+#wrapper{
+    overflow: hidden;
+    position: relative;
+}
+/* 头部的样式 */
+#header{
+    z-index: initial;
+    top: 0;
+    height: 70px;
+    position: relative;
+    left: 0;
+    width: 100%;
+}
+article, aside, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+
+.inner_c{
+    width: 1180px;
+    margin: 0 auto;
+    height: 60px;
+}
+.inner_c1{
+    width: 1180px;
+    margin: 0 auto;
+    height: 10px;
+}
+
+#header .logo{
+    float: left;
+
+}
+.nav{
+    float: right;
+}
+ul{
+    list-style: none;
+}
+#header .nav li.li_1{
+    float: right;
+    margin-top: 5px;
+    width: 100px;
+    height: 60px;
+    line-height:50px;
+    text-align: center;
+
+}
+.nav .li_2{
+    position: relative;
+}
+.nav .li_2 .dhtda{
+    position: relative;
+}
+#header .nav li.first{
+    margin-left: 10px;
+}
+#header .inner_c a.logo_a{
+    display: block;
+    transition: all 0.3s;
+}
+#header .nav li a.dhtda{
+    display: block;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.subnav li{
+    margin-bottom: 5px;
+    transition: all 0.3s;
+}
+.subnav li a{
+    display: block;
+
+}
+
+#header .inner_c a.logo_a:link{
+    width: 60px;
+    height:60px;
+    background:url(../images/logo.png);
+}
+
+#header .nav li a.first_a{
+    width: 91px;
+    height: 45px;
+    line-height: 45px;
+    color: black;
+    background: white;
+    border-radius: 0.35714em;
+    font-size: 0.875em;
+}
+
+.liebiao ul {
+    display: none;
+    position: absolute;
+    top: 55px;
+    z-index: 9999;
+    width: 10.625em;
+    background: #fff;
+    padding: 5px 0 5px 0;
+    border-radius: 3px;
+    box-shadow: 0 50px 130px rgba(0, 0, 0, 0.4);
+    left: 50%;
+    right: auto;
+    transform: translate3d(-50%, 0px, 0);
+    margin: 0;
+    list-style: none;
+}
+
+.liebiao li:hover ul {
+    display: block;
+}
+
+#header .nav li a:hover{
+    color:white;
+}
+.subnav li:hover{
+    background-color: rgba(138,177,234,0.1);
+    color: #fff;
+}
+#header .nav .subnav li a:hover{
+    color:#0e446f;
+}
+#header .inner_c a.logo_a:hover{
+    background-image: url(../images/logo_back.png);
+}
+
+
+/* 中部的样式 */
+#centertop{
+    margin:0 auto;
+    width: 1064px;
+    height:300px;
+}
+#centertop .welcome{
+    position: relative;
+    height: 100px;
+    width: 1064px;
+}
+#centertop .welcome h2{
+    position: absolute;
+    left: 50%;
+    margin-left: -336px;
+    font-size: 3em;
+    color: #fff;
+    text-align: center;
+    font-weight: 300;
+    line-height: 100px;
+}
+#centertop .welcome h2 strong{
+    font-weight:600;
+}
+#centertop .sousuolan{
+    width:1064px;
+    height:66px;
+}
+#centertop .sousuolan .shurukuang{
+    margin:0 auto;
+    width:672px;
+    height:66px;
+
+}
+div.search {
+    text-align: center;
+}
+
+div {
+    margin: 0;
+    position: relative;
+}
+
+input[type="search"] {
+    width:100%;
+    background-color: #fff;
+    color: #3f4652;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    border: none;
+    padding: 0.875em 1.625em;
+    padding-right: 4.375em;
+    line-height: 2.25em;
+    margin-bottom: 0;
+    -webkit-appearance: none;
+    position: relative;
+    background-clip: border-box;
+    text-align: left;
+    font-family: "Open Sans", sans-serif;
+    transition: background-color 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+    display: inline-block;
+    border-radius: 0.35714em;
+    box-shadow: 0 0 0 1px transparent;
+}
+button[type="submit"] {
+    position: absolute;
+    font-size: 16px;
+    background-image: url(../images/simple.svg);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height:40px;
+    width: 40px;
+    top: 12px;
+    right: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+#centertop .jieshi{
+    width:1064px;
+    height: 50px;
+    text-align: center;
+    color:white;
+    line-height: 50px;
+}
+#centertop .jieshi a{
+    color:white;
+    font-weight: bold;
+    text-decoration: underline;
+    transition: all 0.3s;
+}
+
+#centertop .jieshi a:hover{
+    color:#b2e0ee;
+}
+#center{
+    margin: 0 auto;
+    width: 1063px;
+    height: 852px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 20px 40px 0px;
+    margin-bottom: 100px;
+}
+
+/*中部左侧*/
+#center #center-left{
+    float:left;
+    width: 297px;
+    height: 852px;
+    border-radius: 5px 0 0 5px;
+    position: relative;
+    background-color: #3f4652;
+    display: none;
+}
+#center-left ul{
+    color:#8a97a6;
+    padding-left:12px;
+    padding-top:12px;
+}
+#center-left ul h3{
+    font-weight: 400;
+    line-height: 48px;
+    font-size: 0.875em;
+    padding: 0 15px;
+}
+#center-left ul a{
+    display: block;
+    transition: all 0.3s;
+    width: 273px;
+    height: 48px;
+    color:#95a0af;
+    position: relative;
+    cursor: pointer;
+
+}
+#center-left ul a.home{
+    color:white;
+}
+#center-left ul a:hover {
+    background-color: #383f49;
+    border-radius: 5px;
+}
+
+#center-left ul h3.bangzhu{
+    position: relative;
+}
+
+
+
+#center-left ul a .jiantou{
+    width: 8px;
+    height: 8px;
+    background-image: url(../images/jiantou.png);
+    background-repeat: no-repeat;
+    background-size: 8px 8px;
+    background-position: left center;
+    position: absolute;
+    top:45%;
+    right:19px;
+}
+
+
+
+
+
+/*中部右侧*/
+
+#center-right{
+    float:right;
+    width: 766px;
+    height: 852px;
+    background-color: #fff;
+    border-radius: 0 5px 5px 0;
+    padding:50px;
+    display: none;
+    position: relative;
+}
+.center-right-shang1{
+    height: 224px;
+    width: 666px;
+}
+.center-right-shang2{
+    height: 224px;
+    width: 666px;
+}
+.center-right-shang a{
+    float: left;
+    display: block;
+    height: 204px;
+    width: 204px;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    text-align: center;
+    position: relative;
+}
+.center-right-shang a img{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.center-right-shang .shang1-img1{
+      margin-right: 6px;
+  }
+.center-right-shang .shang1-img2{
+    margin-right: 6px;
+}
+.center-right-shang .shang2-img1{
+    margin-right: 6px;
+}
+.center-right-shang .shang2-img2{
+    margin-right: 6px;
+}
+
+.center-right-shang a:hover{
+    border: 2px solid #00c4cc;
+    box-shadow: 2px 2px 20px #d9d9d9;
+    border-radius: 5px;
+}
+#center-right hr{
+    border: 1px solid #ebeced;
+    margin-top: 30px;
+    margin-bottom: 45px;
+}
+
+.center-right-xia{
+    height: 230px;
+    width: 666px;
+}
+.center-right-xia h3{
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.73913em;
+    height: 37px;
+
+}
+.center-right-xia h3 span {
+    background-image: url(../images/xingxing.svg);
+    background-repeat: no-repeat;
+    background-size: 0.9375em;
+    background-position: left center;
+    padding-left: 1.3125em;
+    width:36px;
+    height: 28px;
+}
+.center-right-liebiao span{
+    background:url(../images/jiantou.png);
+    background-repeat: no-repeat;
+    background-size: 8px 8px;
+    background-position: left center;
+    padding-left: 1.3125em;
+}
+.center-right-liebiao ul{
+    float: left;
+    width: 333px;
+    line-height: 35px;
+    padding-top: 30px;
+}
+
+.center-right-liebiao a{
+    transition: all 0.3s;
+    color: #3f4652;
+}
+
+.center-right-liebiao a:hover{
+    color: #00c4cc;
+}
+
+#center-right .product{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 766px;
+    height: 852px;
+    background-color: #fff;
+    border-radius: 0 5px 5px 0;
+    padding:50px;
+    display: none;
+}
+
+#center-right .teacher{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 766px;
+    height: 852px;
+    background-color: #fff;
+    border-radius: 0 5px 5px 0;
+    padding:50px;
+    display: none;
+}
+#center-right .group{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 766px;
+    height: 852px;
+    background-color: #fff;
+    border-radius: 0 5px 5px 0;
+    padding:50px;
+    display: none;
+}
+#center-right .table{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 766px;
+    height: 852px;
+    background-color: #fff;
+    border-radius: 0 5px 5px 0;
+    padding:50px;
+    display: none;
+}
+#center-right .curve{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 766px;
+    height: 852px;
+    background-color: #fff;
+    border-radius: 0 5px 5px 0;
+    padding:50px;
+    display: none;
+}
+/*底部上开始*/
+#row{
+    height: 300px;
+    width: 100%;
+    margin-bottom: 80px;
+}
+.row_c{
+    width: 1200px;
+    margin: 0 auto;
+}
+.row_c a{
+    color:#fff;
+    transition: all 0.3s;
+}
+.row_c a.support{
+    color: #00c4cc;
+}
+.row_c a:hover{
+    color:#b2e0ee;
+}
+.row_c dl{
+    float: left;
+    width: 200px;
+}
+.row_c dt{
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.125em;
+    height: 40px;
+}
+.row_c dd{
+    line-height: 30px;
+}
+
+
+/*底部下*/
+#footer{
+    height: 90px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding:25px 0;
+}
+.footer_c{
+    margin: 0 auto;
+    width: 1204px;
+    height: 40px;
+}
+.eg{
+    float: left;
+    width: 241px;
+    height: 40px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 0.875em;
+    color: #fff;
+    border-radius: 0.21429em;
+    position: relative;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border .3s;
+}
+.eg .icon-angle-up{
+    position: absolute;
+    right: 1em;
+    font-size: 20px;
+}
+.tubiao{
+    float: left;
+    width: 270px;
+    height: 40px;
+    margin-left: 25px;
+}
+.tubiao ul li{
+    float: left;
+}
+.tubiao a{
+    display: block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    transition: all 0.3s;
+    font-size: 20px;
+}
+.tubiao a span{
+    line-height:40px;
+}
+.tubiao a:hover{
+    color: #00c4cc;
+}
+.jiewei{
+    float: right;
+    line-height: 40px;
+    color:#fff;
+    font-size: 0.875em;
+}
+
+
+
+

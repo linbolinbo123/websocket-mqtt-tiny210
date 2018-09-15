@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>One for all</title>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/c3.css"/>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/mask.css" />
+	<link rel="stylesheet" href="css/topic.css"/>
+	<!--动画样式-->
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="shortcut icon" href="one.ico" />
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js" type="text/javascript"></script>-->
+	<script>
+		window.onload= function () {
+			function $(id){return document.getElementById(id)}
+			var login=document.getElementById("login");
+			var strong=document.getElementById("strong");
+			login.onclick= function (event) {
+				$("mask").style.display="block";
+				$("show").style.display="block";
+				document.body.style.overflow="hidden"; //不显示滚动条
+				var event=event || window.event;
+				if(event && event.stopPropagation){
+					event.stopPropagation();
+				}else{
+					event.cancelBubble=true;
+				}
+			}
+			strong.onclick= function (event) {
+				var event= event || window.event;
+				var targetid=event.target? event.target.id :event.srcElement.id;
+				if(targetid == "show"){
+					$("show").style.display="block";
+					$("mask").style.display="block";
+				}else{
+					$("show").style.display="none";
+					$("mask").style.display="none";
+					document.body.style.overflow="visible"; //显示滚动条
+				}
+			}
+		}
+	</script>
+	<style>
+		.chart{
+			position: absolute;
+			width: 600px;
+		}
+	</style>
+</head>
+
+<body>
+
+  	<div id="wrapper">
+
+		<!-- 头部 -->
+		<header id="header">
+			<!-- 隔墙 -->
+		   <div class="inner_c1"></div> 
+         	<div class="inner_c">
+				<h1 class="logo">
+			    		<a href="One%20for%20all.html" class="logo_a"></a>
+				</h1>
+				<div class="nav">
+					<ul class="liebiao">
+						<li class="li_1 first">
+						<a href="One%20for%20all.html" class="first_a dhtda" id="login">Sign out</a>
+						</li>
+						<li class="li_1 li_2">
+							<a href="#" class="dhtda">Admin <span class="icon-caret-down"></span></a>
+							     <ul class="subnav">
+                                          <li><a href="#">User Center</a></li>
+                                          <li><a href="#">Account Settings</a></li>
+                                          <li><a href="#">Feedback</a></li>
+                                          <li><a href="#">sign out</a></li>
+                                 </ul>
+						</li>
+						<li class="li_1 border_have"><a href="#" class="dhtda">Learn</a></li>
+						<li class="li_1 border_have"><a href="#" class="dhtda">Features</a></li>
+						<li class="li_1 border_have"><a href="#" class="dhtda">Browse</a></li>
+					</ul>
+				</div>
+			</div>
+        </header>
+		<!--/头部结束-->
+
+        <!-- 中部上 -->
+        <div id="centertop">
+            <div class="welcome"><h2><strong>Welcome!</strong> How can we help?</h2></div>
+            <div class="sousuolan">
+                <div class="shurukuang">
+                    <div  id="searchform" class="search">
+                        <input id="s" class="search_input" type="search" name="s" />
+                        <button class="search-submit" type="submit"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="jieshi">
+                <p>popular searches:&nbsp;<a id="pro">product description</a>,&nbsp;<a id="gro">Group members</a>,&nbsp;<a id="dat">Data table display</a>,&nbsp;<a id="cur">Curve drawing</a> </p>
+            </div>
+        </div>
+		<!-- /中部上结束 -->
+
+        <!--中部中-->
+        <div id="center">
+			<!--中部动画-->
+			<div id="animate">
+				<div class="text">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div class="search">
+					<!-- 关键字 -->
+					<span class="key"></span>
+					<!-- 查询结果 -->
+					<div class="wrap">
+						<div class="tips"></div>
+					</div>
+				</div>
+				<button id="btn">
+					<span>Start now</span>
+				</button>
+			</div>
+			<!--/中部动画结束-->
+
+			<!--中部左侧开始-->
+            <div id="center-left">
+				<ul>
+					<li><a class="home" id="home"><h3><span class="icon-home"></span> Home</h3></a></li>
+					<li><a id="product"><h3 class="bangzhu"><span class="icon-cloud"></span> product description<span class="jiantou"></span></h3></a></li>
+					<li><a id="teacher"><h3 class="bangzhu"><span class="icon-user"></span> instructor<span class="jiantou"></span></h3></a></li>
+					<li><a id="group"><h3 class="bangzhu"><span class="icon-group"></span> Group members<span class="jiantou"></span></h3></a></li>
+					<li><a id="table"><h3 class="bangzhu"><span class="icon-table"></span> Data table display<span class="jiantou"></span></h3></a></li>
+					<li><a id="curve"><h3 class="bangzhu"><span class="icon-edit"></span> Curve drawing<span class="jiantou"></span></h3></a></li>
+					<li><a><h3 class="bangzhu"><span class="icon-th-large"></span> iPad & iPhone Apps<span class="jiantou"></span></h3></a></li>
+					<li><a><h3 class="bangzhu"><span class="icon-lightbulb"></span> Contributors<span class="jiantou"></span></h3></a></li>
+					<li><a><h3 class="bangzhu"><span class="icon-reorder"></span> Legal<span class="jiantou"></span></h3></a></li>
+					<li><a><h3 class="bangzhu"><span class="icon-picture"></span> Canva Print<span class="jiantou"></span></h3></a></li>
+					<li><a><h3 class="bangzhu"><span class="icon-leaf"></span> Android App<span class="jiantou"></span></h3></a></li>
+					<li><a><h3 class="bangzhu"><span class="icon-remove"></span> Something's not working<span class="jiantou"></span></h3></a></li>
+				</ul>
+			</div>
+			<!--中部左侧结束-->
+
+			<!--中部右侧开始-->
+            <div id="center-right">
+				<div class="Home">
+					<div class="center-right-shang">
+						<div class="center-right-shang1">
+							<a href="#" class="shang1-img1"><img src="images/01.svg" alt=""></a>
+							<a href="#" class="shang1-img2"><img src="images/02.svg" alt=""></a>
+							<a href="#" class="shang1-img3"><img src="images/03.svg" alt=""></a>
+						</div>
+						<div class="center-right-shang2">
+							<a href="#" class="shang2-img1"><img src="images/04.svg" alt=""></a>
+							<a href="#" class="shang2-img2"><img src="images/05.svg" alt=""></a>
+							<a href="#" class="shang2-img3"><img src="images/06.svg" alt=""></a>
+						</div>
+					</div>
+					<hr>
+					<div class="center-right-xia ">
+						<h3><span><!--<img src="images/xingxing.svg" alt="">--></span>Featured articles</h3>
+						<div class="center-right-liebiao">
+							<ul>
+								<li><span></span><a href="#">Sharing designs with your team</a></li>
+								<li><span></span><a href="#">Accessing your invoice</a></li>
+								<li><span></span><a href="#">Purchasing premium elements</a></li>
+								<li><span></span><a href="#">Using photos in grids</a></li>
+							</ul>
+							<ul>
+								<li><span></span><a href="#">Advanced Search</a></li>
+								<li><span></span><a href="#">Obtain print quality files</a></li>
+								<li><span></span><a href="#">Using team templates</a></li>
+								<li><span></span><a href="#">Upgrade to Canva for Work</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="product">
+					<h3>产品介绍</h3>
+					<p>科技的进步如果不是为人类带来便利，那么将一无是处。而随着嵌入式智能的发展，一些应用也能为生活服务带来便利，解决我们所容易忽略的一些问题—即掌控你生活的一切，智能监测和管理你想的一切。
+本作品可以通过底层硬件所需获取数据，传送到arm开发板网关，再由此通过mqtt传说到后台服务端，在服务端可以进行所需数据分析，然后根据所需功能通过安卓或者其它通讯方式反馈给使用者，体现了智慧控制，智能生活的基本理念。</p>
+				</div>
+				<div class="teacher">
+					<h3>指导老师</h3>
+					<ul>
+						<li>张美平</li>
+						<li>Meiping Zhang</li>
+						<img src="images/张美平.jpg" alt=""/>
+					</ul>
+				</div>
+				<div class="group">
+					<h3>小组成员</h3>
+					<ul>
+						<li style="background-color:rgba(138,177,234,0.1) ">林博</li>
+						<li>黄启彬</li>
+						<li style="background-color:rgba(138,177,234,0.1) ">吴德平</li>
+						<li>薛成文</li>
+					</ul>
+				</div>
+				<div class="table">
+					<h3>数据表格展示</h3>
+					<div class="topic">
+						<div class="topic-submit">
+							订阅-主题名字：<input type="text" id="topicName" value="hello">
+							<br>
+							订阅-得到内容：<input type="text" id="topicContent" value="">
+							<br>
+							发送的数据：<input type="text" id="topicPub" value="">
+							<br>
+							<input type="button" value="订阅" onclick="subTopic()" id="topicBtn" class="topicBtn">
+							<input type="button" value="控制灯" onclick="pubTopic()" id=""  class="topicBtn">
+						</div>
+
+						<h3 class="topic-header">项目数</h3>
+						<div class="topic-header-ul">
+							<ul id="topicUl">
+
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="curve">
+					<h3>曲线绘制</h3>
+						<div id="real-chart" class="chart"></div>
+				</div>
+			</div>
+			<!--/中部右侧结束-->
+        </div>
+		<!--/中部中结束-->
+
+		<!--底部上-->
+		<!--<div id="row">
+			<div class="row_c">
+                <dl>
+			        <dt>Browse</dt>
+			        <dd><a href="#">Design types</a></dd>
+			        <dd><a href="#">Templates</a></dd>
+			        <dd><a href="#">Icons</a></dd>
+			        <dd><a href="#">Photos</a></dd>
+			        <dd><a href="#">Ideas</a></dd>
+		        </dl>
+				<dl>
+					<dt>Features</dt>
+					<dd><a href="#">Graphs</a></dd>
+					<dd><a href="#">Photo editing</a></dd>
+					<dd><a href="#">Print</a></dd>
+				</dl>
+				<dl>
+					<dt>Learn</dt>
+					<dd><a href="#">Design</a></dd>
+					<dd><a href="#">Photography</a></dd>
+					<dd><a href="#">Business</a></dd>
+				</dl>
+				<dl>
+					<dt>Resources</dt>
+					<dd><a href="#">Font combinations</a></dd>
+					<dd><a href="#">Photo editor</a></dd>
+					<dd><a href="#">Palette generator</a></dd>
+					<dd><a href="#">Colors</a></dd>
+					<dd><a href="#">Tutorials</a></dd>
+					<dd><a href="#" class="support">Support</a></dd>
+					<dd><a href="#">Canva for work</a></dd>
+					<dd><a href="#">Design courses</a></dd>
+					<dd><a href="#">Teaching materials</a></dd>
+				</dl>
+				<dl>
+					<dt>Product</dt>
+					<dd><a href="#">For mobile</a></dd>
+					<dd><a href="#">For work</a></dd>
+					<dd><a href="#">Education</a></dd>
+					<dd><a href="#">Nonprofits</a></dd>
+					<dd><a href="#">Pricing</a></dd>
+				</dl>
+				<dl>
+					<dt>Company</dt>
+					<dd><a href="#">About</a></dd>
+					<dd><a href="#">Story</a></dd>
+					<dd><a href="#">Careers</a></dd>
+					<dd><a href="#">Media</a></dd>
+					<dd><a href="#">Design Community</a></dd>
+					<dd><a href="#">Contributors</a></dd>
+					<dd><a href="#">Terms and Privacy</a></dd>
+				</dl>
+			</div>
+		</div>-->
+		<!--/底部上结束-->
+
+		<!--底部下-->
+		<div id="footer">
+			<div class="footer_c">
+				<div class="eg">
+					English
+					<span class="icon-angle-up"></span>
+				</div>
+				<div class="tubiao">
+					<ul>
+						<li><a href="#"><span class="icon-phone"></span></a></li>
+						<li><a href="#"><span class="icon-twitter"></span></a></li>
+						<li><a href="#"><span class="icon-facebook"></span></a></li>
+						<li><a href="#"><span class="icon-github"></span></a></li>
+						<li><a href="#"><span class="icon-linkedin"></span></a></li>
+						<li><a href="#"><span class="icon-google-plus"></span></a></li>
+					</ul>
+				</div>
+				<div class="jiewei">© 2018 嵌入式开发实训</div>
+			</div>
+		</div>
+		<!--/底部下结束-->
+
+	</div>
+
+	<!--模态框-->
+	<div id="mask"></div>
+	<div id="show">
+		<div class="x"><strong id="strong">x</strong></div>
+		<div class="biaoti"><h2>welcome back!</h2></div>
+		<form action="admin.php" method="post">
+		<div class="username"><img src="images/username.png" alt=""><input type="text" name="username" id="username"></div>
+		<div class="password"><img src="images/password.png" alt=""><input type="password" name="password" id="password"></div>
+		<input type="submit" id="submit" value="Sign in">
+		</form>
+	</div>
+	<!--/模态框结束-->
+	<script src="js/paho-mqtt.js"></script>
+	<script src="lib/jquery/jquery.js"></script>
+	<script src="js/c3.min.js"></script>
+	<script src="js/d3.v4.min.js"></script>
+	<script src="js/my.js"></script>
+	<script src="js/websocket.js"></script>
+</body>
+</html>

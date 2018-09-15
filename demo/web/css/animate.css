@@ -1,0 +1,182 @@
+/*中部右侧动画*/
+#animate{
+    width: 1063px;
+    height: 852px;
+    background-color: rgba(13,165,214,0.2);
+    border-radius: 0 5px 5px 0;
+    padding:50px;
+    position: relative;
+}
+
+#animate .text{
+    width: 200%;
+    text-align: center;
+    line-height: 1;
+    font-size: 80px;
+    color: #FFF;
+    position: absolute;
+    left: 50%;
+    margin-left:-1063px;
+    height: 100px;
+}
+
+#animate .text span {
+    display: inline-block;
+    margin: 0 40px;
+    opacity: 0;
+    background-image: url(../images/p1.png);
+}
+
+#animate.current .text span {
+    opacity: 1;
+    margin: 0;
+    transition: all 1s ease-out 0.3s;
+}
+
+#animate .text span:nth-child(1) {
+    background-position: -7px -208px;
+    width: 63px;
+    height: 83px;
+}
+
+#animate .text span:nth-child(2) {
+    background-position: -76px -205px;
+    width: 91px;
+    height: 90px;
+}
+
+#animate .text span:nth-child(3) {
+    background-position: -181px -209px;
+    width: 82px;
+    height: 85px;
+}
+
+#animate .text span:nth-child(4) {
+    background-position: -277px -204px;
+    width: 90px;
+    height: 91px;
+}
+
+#animate .text span:nth-child(5) {
+    background-position: -376px -205px;
+    width: 92px;
+    height: 90px;
+}
+
+#animate .text span:nth-child(6) {
+    background-position: -481px -209px;
+    width: 82px;
+    height: 85px;
+}
+
+#animate .text span:nth-child(7) {
+    background-position: -576px -205px;
+    width: 92px;
+    height: 90px;
+}
+
+#animate .text span:nth-child(8) {
+    background-position: -677px -204px;
+    width: 91px;
+    height: 91px;
+}
+
+#animate .search {
+    width: 529px;
+    height: 67px;
+    margin: -220px 0 0 0;
+    background: url(../images/p4.png) no-repeat;
+    position: absolute;
+    top: 50%;
+    opacity: 0;
+    left: -100%;
+}
+
+#animate .key {
+    width: 0;
+    height: 17px;
+    background: url('../images/p4.png') no-repeat -570px -330px;
+    position: absolute;
+    left: 26px;
+    top: 26px;
+    overflow: hidden;
+}
+
+#animate .wrap {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    overflow: hidden;
+}
+
+#animate .tips {
+    width: 529px;
+    height: 380px;
+    background: url('../images/p4.png') no-repeat -1px -79px;
+    transform: translate(0, -100%);
+}
+
+
+#animate.current .search {
+    left: 50%;
+    margin-left: -265px;
+    opacity: 1;
+    transition: all 1s ease-in-out;
+    transition-delay:1s ;
+    top: 50%;
+    margin-top: -220px;
+}
+
+#animate.current .tips {
+    transform: translate(0, 0);
+    transition: all 0.5s ease-in-out 2.8s;
+    transition-delay: 4s;
+}
+
+#animate.current .key {
+    animation: typing 1.5s steps(5) 1.3s forwards;
+    animation-delay:2s;
+}
+#animate #btn{
+    position: absolute;
+    left: 50%;
+    margin-left: -135px;
+    bottom: 100px;
+    width: 270px;
+    height: 66px;
+    background: #FBB03B;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color .5s ease-out;
+}
+#animate #btn:hover{
+    background-color: #F1923D;
+}
+#animate #btn span{
+    height: 66px;
+    line-height: 66px;
+    vertical-align: center;
+    font-size: 14pt;
+    color: #FFF;
+}
+/*打字效果*/
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 88px;
+    }
+}
+
+@keyframes xiaoshi{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}

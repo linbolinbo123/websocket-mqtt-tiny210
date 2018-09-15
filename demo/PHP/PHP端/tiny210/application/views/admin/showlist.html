@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="refresh" content="10">
+    </head>
+    <body>
+        开关灯：
+        <button onclick="window.location.href='index.php?p=admin&c=mqtt&a=pubcmd&cmd=FFFF&node_num=5001'">开灯</button>
+        <button onclick="window.location.href='index.php?p=admin&c=mqtt&a=pubcmd&cmd=0000&node_num=5001'">关灯</button>
+        <?php if($flag!='4001') {?>
+        <table cellpadding="3" cellspacing="1" width="100%" border="1">
+        <tbody>
+		<tr>
+			<th>顺序编号</th>
+			<th>节点数据</th>
+			<th>时间</th>
+		</tr>
+                <?php foreach ($node_light as $v) :?>
+                <tr>
+                    <td><?php echo $v['id'];?></td>
+                    <td><?php echo $v['photosensitive'];?> </td>
+                    <td><?php echo date('Y-m-d H:i',$v['time']);?></td>
+                </tr>
+                <?php endforeach;?>
+        </tbody>
+        </table>
+        <?php }else{?>
+        <br />
+        温度：
+        <table cellpadding="3" cellspacing="1" width="100%" border="1">
+        <tbody>
+		<tr>
+			<th>节点id</th>
+			<th>节点数据</th>
+			<th>时间</th>
+			<th>相关操作</th>
+		</tr>
+                <?php foreach ($node_temps as $v) :?>
+                <tr>
+                    <td><?php echo $v['node_num'];?></td>
+                    <td><?php echo $v['node_data']/10000;?> </td>
+                    <td><?php echo date('Y-m-d H:i',$v['node_time']);?></td>
+                    <td><a href="index.php?p=admin&c=mqtt&a=pubcmd&cmd=0005&node_num=<?php echo $v['node_num']?>">5s/次</a></td>
+                </tr>
+                <?php endforeach;?>
+        </tbody>
+        </table>
+        湿度：
+        <table cellpadding="3" cellspacing="1" width="100%" border="1">
+        <tbody>
+		<tr>
+			<th>节点id</th>
+			<th>节点数据</th>
+			<th>时间</th>
+			<th>相关操作</th>
+		</tr>
+                <?php foreach ($node_temps as $v) :?>
+                <tr>
+                    <td><?php echo $v['node_num'];?></td>
+                    <td><?php echo $v['node_data']-$v['node_data']/10000;?> </td>
+                    <td><?php echo date('Y-m-d H:i',$v['node_time']);?></td>
+                    <td><a href="index.php?p=admin&c=mqtt&a=pubcmd&cmd=0005&node_num=<?php echo $v['node_num']?>">5s/次</a></td>
+                </tr>
+                <?php endforeach;?>
+        </tbody>
+        </table>
+        <?php }?>
+    </body>
+</html>
